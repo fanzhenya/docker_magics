@@ -3,6 +3,7 @@
 cat << EOF
 Changing IP range for docker default bridge device so that it does not conflict with your network. Learn more:
   https://docs.docker.com/v17.09/engine/userguide/networking/default_network/custom-docker0/
+
 EOF
 
 PY_CODE=$(cat<< EOF
