@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# use $1 with default
+new_range=${1:-"192.168.68.1/24"}
+
 cat << EOF
-Changing IP range for docker default bridge device so that it does not conflict with your network. Learn more:
+Changing IP range for docker default bridge device to ${new_range} so that it does not conflict with your network. Learn more:
   https://docs.docker.com/v17.09/engine/userguide/networking/default_network/custom-docker0/
 
 EOF
@@ -23,7 +26,7 @@ except Exception as e:
     print "Warning: Cannot load old config from",  daemon_file, ":", e
     print "Creating new config"
 
-config[u"bip"] = u"192.168.68.1/24"
+config[u"bip"] = u${new_range}
 try:
     with open(daemon_file, "w+") as f:
         json.dump(config, f)
