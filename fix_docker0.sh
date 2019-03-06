@@ -26,7 +26,7 @@ except Exception as e:
     print "Warning: Cannot load old config from",  daemon_file, ":", e
     print "Creating new config"
 
-config[u"bip"] = u${new_range}
+config[u"bip"] = u"${new_range}"
 try:
     with open(daemon_file, "w+") as f:
         json.dump(config, f)
